@@ -6,13 +6,15 @@
 # Comes without any warranty, you are responsible for any damage this script may cause... 
 # License: WTFPL  <http://www.wtfpl.net/>
 
-chat_id=""
-bot_token=""
+source config
 
 YOUTUBEDL="/usr/local/bin/youtube-dl"
+
+URL=$1
+
 echo "Downloading song info...."
 
-INFO=`$YOUTUBEDL --get-filename -o '%(title)s:%(alt_title)s:%(artist)s:%(genre)s:%(album)s:%(track)s:%(uploader)s:%(creator)s:%(channel)s:%(duration)s' $1`
+INFO=`$YOUTUBEDL --get-filename -o '%(title)s:%(alt_title)s:%(artist)s:%(genre)s:%(album)s:%(track)s:%(uploader)s:%(creator)s:%(channel)s:%(duration)s' $URL`
 echo $INFO
 
 title=$(echo $INFO | cut -f 1 -d":" | sed  "s/ /_/g")
@@ -25,7 +27,7 @@ uploader=$(echo $INFO | cut -f 7 -d":")
 duration=$(echo $INFO | cut -f 10 -d":")
 
 echo "Downloading music...."
-$YOUTUBEDL -x --audio-format mp3 -o /tmp/$title."%(ext)s" --write-thumbnail $1
+$YOUTUBEDL -x --audio-format mp3 -o /tmp/$title."%(ext)s" --write-thumbnail $URL
 
 echo "Uploading to telegram..."
 curl -X POST https://api.telegram.org/bot$bot_token/sendAudio -F chat_id="$chat_id" -F thumb="@/tmp/$title.jpg" -F audio="@/tmp/$title.mp3" -F caption="$title" -F title="$title" -F performer="$performer" -F duration="$duration"

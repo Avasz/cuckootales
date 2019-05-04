@@ -18,7 +18,7 @@ It uses `youtube-dl` to download and extract audio from youtube videos. It also 
 1. Create a Telegram bot using Botfather. Details can be found [here](https://core.telegram.org/bots#3-how-do-i-create-a-bot]).  
 2. Create a Telegram channel or group and get the chat id.  
 3. If you are using a channel, make the bot administrator of that channel.  
-4. Configure the script with bot-token and chat ID.  
+4. Add the bot-token and chat ID in the config file.  
 
 It is simple to use:  
 `./cuckoo.sh <youtube-link-here>`  
