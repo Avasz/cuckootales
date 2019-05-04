@@ -33,5 +33,5 @@ curl -X POST https://api.telegram.org/bot$bot_token/sendAudio -F chat_id="$chat_
 
 echo -e "\n\nUpload done"
 echo "Cleaning files from temporary directory..."
-rm -rf /tmp/*.mp3
+rm /tmp/$title.{mp3,jpg}
 echo "Completed..."
