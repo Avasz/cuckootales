@@ -4,7 +4,7 @@ Simple bash script that downloads and extracts mp3 from youtube videos and uploa
 
 Telegram can be used as a music player substitute. It is kind of cool and handy feature of Telegram.
 
-License: WTFPL ![WTFPL LOGO](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)
+License: [WTFPL](http://www.wtfpl.net) ![WTFPL LOGO](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)
 
 # Dependencies
 
